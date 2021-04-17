@@ -40,6 +40,7 @@
      
  3-4 이것은 선택 사항으로 시간이 많이 남는다면 티스토리 같은 블로그에도 같이 게시물을 올린다.
      https://dev-matagi.tistory.com/ - 최재훈
+     https://github.com/kr-MATAGI/Coding-Problem - 최재훈 개인 깃
      
      
  4 이외 유용한 코딩 테스트 문제가 모여있는 문제 은행 사이트들이다.
