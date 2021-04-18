@@ -19,8 +19,8 @@
 ## 2. 계획
 - 처음에는 1문제로 풀기가 아닌 백준의 단계별로 풀기를 아래와 같이 진행한다. 물론, 더 할 수 있다면 해도 좋다.
 - 모르는 것은 넘어가도 되며 아래의 기간 동안에는 벌금을 부과하지 않는다.
- (기획자도 사이트의 재채점 혹은 문제 추가로 인해 풀 것이 있으면 진행)
 - 동적계획법은 기초 단계 이후 진행한다. 
+- 기획자도 사이트의 재채점 혹은 문제 추가로 인해 풀 것이 있으면 진행
   
   https://www.acmicpc.net/step
 
@@ -33,7 +33,9 @@
 | 05M03W | 정수론 및 조합론 |
 | 05M04W | 스택 ~ 큐, 덱 |
 
--  위 과정이 완료되면 프로그래머스 2레벨 (SQL 제외)하고 매주 1문제씩 진행해본다. (물론 1문제 이상 풀면 좋다)
+-  위 과정이 완료되면 프로그래머스 2레벨 (SQL 제외)하고 매주 1문제씩 진행해본다. 
+-  물론 1문제 이상 풀면 좋다
+ 
  https://programmers.co.kr/learn/challenges?tab=all_challenges
 
 ## 3. 개인 학습
@@ -47,10 +49,12 @@
 
 ## 4. 참고
  - 이외 유용한 코딩 테스트 문제가 모여있는 문제 은행 사이트들이다.
+
     백준 - https://www.acmicpc.net/
     프로그래머스 - https://programmers.co.kr/
     SWEA - https://swexpertacademy.com/main/main.do
     코드그라운드 - https://www.codeground.org/
 - 이 밑에 부분은 해외사이트이며 참고만 하면된다.
+
     uva - https://uva.onlinejudge.org/
     leet code - https://leetcode.com/
