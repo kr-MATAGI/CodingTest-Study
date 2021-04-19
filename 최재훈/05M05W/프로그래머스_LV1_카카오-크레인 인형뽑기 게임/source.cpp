@@ -8,41 +8,59 @@ using namespace std;
 
 int solution(vector<vector<int>> board, vector<int> moves) {
 	int answer = 0;
+	
+	const int boardSize = board.size();
+	int boardCnt[MAX_BOARD] = { 0, };
+
 
 	vector<int> selectedList;
-	const int arrSize = board.size();
 	const int movesSize = moves.size();
-
 	for (int mIdx = 0; mIdx < movesSize; mIdx++)
 	{
-		const int moveValue = moves[mIdx] - 1;
-		const int backValue = board[moveValue].back();
-
-		if (true == board[moveValue].empty() || 0 == board[moveValue].back())
-			continue;
-
-		if (0 < selectedList.size())
+		const int moveVal = moves[mIdx] - 1;
+		while (true)
 		{
-			if (selectedList.back() == backValue)
-			{
-				answer++;
-				selectedList.pop_back();
-			}
+			if (boardSize - 1 < boardCnt[moveVal])
+				break;
+			else if (0 == board[boardCnt[moveVal]][moveVal])
+				boardCnt[moveVal]++;
 			else
 			{
-				selectedList.push_back(backValue);
+				int value = board[boardCnt[moveVal]][moveVal];
+				selectedList.push_back(value);
+				board[boardCnt[moveVal]][moveVal] = 0;
+				break;
 			}
 		}
-		else
-		{
-			selectedList.push_back(backValue);
-		}
-		
-		board[moveValue].pop_back();
 	}
 
-	// print
-	printf("%d\n", answer);
+	// check
+	while (true)
+	{
+		bool boom = false;
+		
+		const int listSize = selectedList.size();		
+		for (int idx = 0; idx < listSize; idx++)
+		{
+			if (idx + 1 < listSize)
+			{
+				if (selectedList[idx] == selectedList[idx + 1]) 
+				{
+					//printf("%d %d \n", selectedList[idx], selectedList[idx + 1]);
+					boom = true;
+					selectedList.erase(selectedList.begin() + idx);
+					selectedList.erase(selectedList.begin() + idx);
+					answer += 2;
+					break;
+				}
+			}
+		}
+
+		if (false == boom)
+			break;
+	}
+	
+	//printf("%d \n", answer);
 
 	return answer;
 }
