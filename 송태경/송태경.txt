@@ -1,0 +1,6 @@
+못푼거
+10951
+
+
+문자열 연산과 정수 연산 속도 차이
+https://copynull.tistory.com/112
