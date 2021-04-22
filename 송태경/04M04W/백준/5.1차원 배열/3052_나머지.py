@@ -54,3 +54,15 @@
 각 수를 42로 나눈 나머지는 39, 40, 41, 0, 1, 2, 40, 41, 0, 1이다. 서로 다른 값은 6개가 있다.
 '''
 
+n_list = [int(input()) for i in range(10)]
+rest = []
+for i in n_list:
+    rest.append(i%42)
+# print(len(set(rest)))
+s_rest = set(rest)
+print(len(s_rest))
+
+# -------------------------------------------
+
+b = [int(input())%42 for i in range(10)]
+print(len(set(b)))
