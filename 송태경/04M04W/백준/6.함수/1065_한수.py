@@ -39,4 +39,3 @@ num = int(input())
 print(hansu(num))
 
 print(sum((N//100-N//10%10==N//10%10-N%10)|(N<100)for N in range(1,int(input())+1)))
-# TypeError: 'int' object is not callable
