@@ -43,6 +43,7 @@ x는 항상 y보다 작은 값을 갖는다. (0 ≤ x < y < 231)
 '''
 
 import math
+
 n = int(input())
 for _ in range(n):
     x, y = map(int, input().split())
