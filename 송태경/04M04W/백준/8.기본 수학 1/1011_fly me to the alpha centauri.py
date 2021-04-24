@@ -1,4 +1,4 @@
-'''
+  '''
 Fly me to the Alpha Centauri 
 시간 제한	메모리 제한	제출	정답	맞은 사람	정답 비율
 2 초	512 MB	55090	15587	12336	29.544%
@@ -41,3 +41,19 @@ x는 항상 y보다 작은 값을 갖는다. (0 ≤ x < y < 231)
 3
 4
 '''
+
+import math
+n = int(input())
+for _ in range(n):
+    x, y = map(int, input().split())
+    dis = abs(x-y)
+    n = int(math.sqrt(dis))
+    if dis <= 3:
+        print(dis)
+    else:
+        if n**2 == dis:
+            print(2*n - 1)
+        elif n**2 < dis <= n**2+n:
+            print(2*n)
+        else:
+            print(2*n+1)

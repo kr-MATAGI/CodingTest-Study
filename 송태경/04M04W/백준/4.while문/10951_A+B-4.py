@@ -51,3 +51,18 @@ import sys
 
 for line in sys.stdin:
     print(sum(map(int,line.split())))
+
+'''
+파이썬 입력이 끝날때 까지 받는 방법
+1. EOFError 이용
+2. sys.readline == ''
+
++a 파일 읽을때
+line = f.readline()
+if not line: 
+    break
+
+with open('myfile.txt') as file:
+    for line in file.readlines():
+        print(line.strip().split('\t'))
+'''
