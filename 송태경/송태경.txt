@@ -6,6 +6,8 @@
 count는 생각했는데
 리스트 중복제거를 생각 못함
 
+1316
+
 
 문자열 연산과 정수 연산 속도 차이
 https://copynull.tistory.com/112
