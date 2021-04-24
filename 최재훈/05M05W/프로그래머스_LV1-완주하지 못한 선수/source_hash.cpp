@@ -1,52 +1,37 @@
 #include <string>
+#include <unordered_map>
 #include <cstring>
-#include <vector>
+#include <algorithm>
+
 using namespace std;
 
 #define ALPHA_MAX 26
 
+typedef pair<string, std::pair<int, int>> KEY_VALUE;
 string solution(vector<string> participant, vector<string> completion) {
     string answer = "";
 
-    // like hash
-    vector<vector<string>> keyList;
-    keyList.resize(ALPHA_MAX + 1);
-
-    // input
-    const int partListSize = participant.size();
-    for (int idx = 0; idx < partListSize; idx++)
+    // hash    
+    unordered_map<string, std::pair<int, int>> hash;
+    for (int idx = 0; idx < participant.size(); idx++)
     {
-        int key = participant[idx][0] - 97;
-        keyList[key].push_back(participant[idx]);
+        if (hash.end() != hash.find(participant[idx]))
+            hash[participant[idx]].first++;
+        else
+            hash.insert(KEY_VALUE(participant[idx], std::pair<int, int>(1, 0)));
     }
 
-    // find
-    const int compListSize = completion.size();
-    for (int idx = 0; idx < compListSize; idx++)
+    for (int idx = 0; idx < completion.size(); idx++)
     {
-        int key = completion[idx][0] - 97;
-
-        vector<string>& valueList = keyList[key];
-        vector<string>::iterator valueIter = valueList.begin();
-
-        for (; valueIter != valueList.end();)
-        {
-            if (0 == strcmp((*valueIter).c_str(), completion[idx].c_str()))
-            {
-                valueIter = valueList.erase(valueIter);
-                break;
-            }
-            else
-                ++valueIter;
-        }
+        if (hash.end() != hash.find(completion[idx]))
+            hash[completion[idx]].second++;
     }
 
-    // answer
-    for (int idx = 0; idx < ALPHA_MAX + 1; idx++)
+    for (int idx = 0; idx < participant.size(); idx++)
     {
-        if (1 <= keyList[idx].size())
+        if (hash[participant[idx]].first != hash[participant[idx]].second)
         {
-            answer = keyList[idx].back();
+            answer = participant[idx];
             break;
         }
     }
@@ -59,7 +44,10 @@ int main()
 {
     vector<string> participant = { "mislav", "stanko", "mislav", "ana" };
     vector<string> completion = { "stanko", "ana", "mislav" };
-    solution(participant, completion);
+
+    string answer = solution(participant, completion);
+    printf("%s\n", answer.c_str());
+    
 
     return 0;
 }
