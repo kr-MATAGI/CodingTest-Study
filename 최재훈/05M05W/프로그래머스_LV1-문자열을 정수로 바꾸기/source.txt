@@ -1,0 +1,87 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+int convert(char ch)
+{
+    switch (ch)
+    {
+    case '1':
+        return 1;
+        
+    case '2':
+        return 2;
+
+    case '3':
+        return 3;
+    
+    case '4':
+        return 4;
+
+    case '5':
+        return 5;
+
+    case '6':
+        return 6;
+
+    case '7':
+        return 7;
+
+    case '8':
+        return 8;
+
+    case '9':
+        return 9;
+
+    case '0':
+        return 0;
+    default:
+        break;
+    }
+}
+
+// 파라미터로 주어지는 문자열은 const로 주어집니다. 변경하려면 문자열을 복사해서 사용하세요.
+int solution(const char* s) {
+    int answer = 0;
+
+    int sLen = strlen(s);
+    
+    char buff[6] = { "\0", };
+    memcpy(buff, s, sLen);
+    
+    bool bIsPlus = false;
+    if ('-' != buff[0])
+        bIsPlus = true;
+    
+    int startIndx = 0;
+    if ('+' == buff[0] || '-' == buff[0])
+        startIndx++;
+    
+    int multi = 1;
+    for (int idx = 0; idx < (sLen - startIndx) - 1; idx++)
+    {
+        multi *= 10;
+    }
+
+    for (int idx = startIndx; idx < sLen; idx++)
+    {
+        int val = convert(buff[idx]);
+        val = multi * val;
+        answer += val;
+        multi /= 10;
+    }
+    
+    if (false == bIsPlus)
+        answer *= -1;
+
+    return answer;
+}
+
+int main()
+{
+    int ans = solution("-1234");
+    printf("%d\n", ans);
+
+    return 0;
+}
