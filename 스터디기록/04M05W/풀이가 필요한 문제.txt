@@ -1,1 +1,6 @@
 송태경: 11729
+
+하노이 코딩 공식 찾아보기
+https://ko.wikipedia.org/wiki/%ED%95%98%EB%85%B8%EC%9D%B4%EC%9D%98_%ED%83%91#Python
+
+분할정복
