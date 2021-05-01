@@ -1,0 +1,52 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+string solution(string s, int n) {
+    string answer = "";
+
+    for (int idx = 0; idx < s.size(); idx++)
+    {
+        if (' ' == s[idx])
+        {
+            answer += s[idx];
+            continue;
+        }
+           
+        int ch = s[idx];
+        if ('a' <= ch && 'z' >= ch)
+        {
+            for (int nIdx = 0; nIdx < n; nIdx++)
+            {
+                ch++;
+                if ('z' < ch)
+                    ch = 'a';
+            }
+            answer += ch;
+        }
+        else
+        {
+            for (int nIdx = 0; nIdx < n; nIdx++)
+            {
+                ch++;
+                if ('Z' < ch)
+                    ch = 'A';
+                
+            }
+            answer += ch;
+        }
+    }
+
+    return answer;
+}
+
+int main()
+{
+    string s = "Z Z Z";
+    int n = 25;
+    string answer = solution(s, n);
+    printf("%s\n", answer.c_str());
+
+    return 0;
+}
