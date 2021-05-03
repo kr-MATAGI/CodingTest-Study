@@ -1,3 +1,4 @@
+# sys 이용해고 읽고 쓰고 출력하고 시간 줄이기
 import sys
 
 n = int(input())
