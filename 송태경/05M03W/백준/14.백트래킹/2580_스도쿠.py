@@ -8,6 +8,8 @@
           [6, 0, 3, 7, 0, 1, 9, 5, 2],
           [2, 5, 8, 3, 9, 4, 7, 6, 0]]
           
+import sys
+r = sys.stdin.readline
 
 def tt(x, y, index):
     r_x = x//3*3
@@ -27,4 +29,28 @@ def verti(y, index):
     for i in range(9):
         if index == sudoku[i][y]:
             return False
-    return True    
+    return True
+
+
+def dfs(index):
+    if index == len(zeros):
+        for row in sudoku:
+            for n in row:
+                print(n, end=" ")
+            print()
+        sys.exit(0)
+    else:
+        for i in range(1, 10):
+            x = zeros[index][0]
+            y = zeros[index][1]
+
+            if hori(x, i) and verti(y, i) and tt(x, y, i):
+                sudoku[x][y] = i
+                dfs(index+1)
+                sudoku[x][y] = 0
+
+
+sudoku = [list(map(int, r().split())) for _ in range(9)]
+zeros = [(i, j) for i in range(9) for j in range(9) if sudoku[i][j] == 0]
+
+dfs(0)
