@@ -7,3 +7,24 @@
           [9, 1, 7, 6, 5, 2, 0, 8, 0],
           [6, 0, 3, 7, 0, 1, 9, 5, 2],
           [2, 5, 8, 3, 9, 4, 7, 6, 0]]
+          
+
+def tt(x, y, index):
+    r_x = x//3*3
+    r_y = y//3*3
+    for i in range(3):
+        for j in range(3):
+            if index == sudoku[i+r_x][j+r_y]:
+                return False
+    return True
+
+def hori(x, index):
+    if index in sudoku[x]:
+        return False
+    return True
+
+def verti(y, index):
+    for i in range(9):
+        if index == sudoku[i][y]:
+            return False
+    return True    
