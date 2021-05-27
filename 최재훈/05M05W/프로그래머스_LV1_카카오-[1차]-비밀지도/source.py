@@ -14,17 +14,6 @@ def calc(answer, n, arr):
     return answer
 
 def solution(n, arr1, arr2):
-    answer = []
-
-    answer = [ [' ' for idx in range(n)] for jdx in range(n)]
-    answer = calc(answer, n , arr1)
-    answer = calc(answer, n , arr2)
-
-    return answer
-
-    return answer
-
-def solution(n, arr1, arr2):
     answer = [ [' ' for idx in range(n)] for jdx in range(n) ]
 
     answer = calc(answer, n , arr1)
