@@ -8,17 +8,6 @@ def calc(answer, n, arr):
             convertedIdx -= 1
         
         for j, element in enumerate(convertedList):
-            if('1' == element): answer[i][j] = '#'
-def calc(answer, n, arr):
-    for i, item in enumerate(arr) :
-        binList = list(str(bin(item).replace('0b', '')))
-        convertedList = [0 for idx in range(n)]
-        convertedIdx = n - 1
-        for idx in range(int(binList.__len__()) - 1, -1, -1):
-            convertedList[convertedIdx] = binList[idx]
-            convertedIdx -= 1
-        
-        for j, element in enumerate(convertedList):
             if('1' == element):
                 answer[i][j] = '#'
 
