@@ -1,0 +1,4 @@
+최재훈:
+회의실 배정 문제 풀때 아래 추가 하니 수행 속도가 매우 줄었음
+import sys
+input = sys.stdin.readline
