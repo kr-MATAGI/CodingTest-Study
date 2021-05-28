@@ -1,4 +1,7 @@
 최재훈:
-회의실 배정 문제 풀때 아래 추가 하니 수행 속도가 매우 줄었음
+1. 회의실 배정 문제 풀때 아래 추가 하니 수행 속도가 매우 줄었음
 import sys
 input = sys.stdin.readline
+> 이와 관련된 python 입출력 속도 참조:
+https://velog.io/@yeseolee/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%85%EB%A0%A5-%EC%A0%95%EB%A6%ACsys.stdin.readline
+
