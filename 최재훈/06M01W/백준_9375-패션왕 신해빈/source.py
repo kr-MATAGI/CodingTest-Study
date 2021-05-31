@@ -24,10 +24,11 @@ for tc in range(testCase):
         nFact = 1
         nrFact = 1
         value = clothesDict.get(cloth).__len__()
+        # 옷을 안입었을 경우까지 고려
         for v in range(1, value + 2): nFact *= v
         for v in range(1, value + 1): nrFact *= v
         combiList.append(nFact // nrFact)
         
     answer = 1
     for value in combiList: answer *= value
-    print(answer - 1)
+    print(answer - 1) # 모두 벗는건 제외
