@@ -16,3 +16,11 @@ while(1):
         break
     else:
         factor_or_mutiple(n_1, n_2)
+        
+
+# 참고
+while 1:
+    a,b=map(int,input().split())
+    if a<1 and b<1:break
+    if b%a==0:print("factor")
+    else:print(["multiple","neither"][a%b>0])
