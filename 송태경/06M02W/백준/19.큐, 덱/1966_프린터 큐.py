@@ -15,7 +15,6 @@ for _ in range(t):
             else:
                 jung.pop(0)
                 docu.pop(0)
-
         else:
             jung.append(jung.pop(0))
             docu.append(docu.pop(0))  
