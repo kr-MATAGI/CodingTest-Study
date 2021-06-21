@@ -12,6 +12,9 @@ unsigned long long  CalcMulti(int A, int B, int C);
 
 int main()
 {
+	/*
+	* 모듈러 성질, 지수의 법칙
+	*/
 	// init
 	std::ios::sync_with_stdio(false);
 
