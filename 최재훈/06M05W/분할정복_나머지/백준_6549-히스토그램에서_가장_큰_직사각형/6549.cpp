@@ -20,7 +20,7 @@ struct DATA
 };
 
 // method
-long long MakeTree(vector<LONG>& inputList, vector<DATA>& tree, int node, int start, int end);
+DATA MakeTree(vector<LONG>& inputList, vector<DATA>& tree, int node, int start, int end);
 
 int main()
 {
@@ -35,9 +35,11 @@ int main()
 
 		if (0 == N)
 			break;
-
+		
 		vector<LONG> hList;
 		vector<DATA> segmTree;
+
+		hList.push_back(0);
 		for (int n = 0; n < N; n++)
 		{
 			LONG hData = 0;
@@ -51,19 +53,55 @@ int main()
 		segmTree.resize(treeSize);
 
 		// make tree
-		MakeTree(hList, segmTree, 0, 0, N-1);
+		MakeTree(hList, segmTree, 1, 0, N-1);
 	}
 
 	return 0;
 }
 
-long long MakeTree(vector<LONG>& inputList, vector<DATA>& tree, int node, int start, int end)
+DATA MakeTree(vector<LONG>& inputList, vector<DATA>& tree, int node, int start, int end)
 {
 	if (start == end)
-		return tree[node] = inputList[start];
+	{
+		/*
+		* 노드가 리프 노드인 경우,
+		* 배열의 원소를 가짐
+		*/
+		DATA leaf(0, inputList[node - 1], node-1);
+		tree[node] = leaf;
+
+		return leaf;
+	}
 
 	int mid = (start + end) / 2;
 
-	return inputList[node] = MakeTree(inputList, tree, node * 2, start, mid)
-		+ MakeTree(inputList, tree, node * 2 + 1, mid + 1, end);
+	DATA leftNode = MakeTree(inputList, tree, node * 2, start, mid);
+	DATA rightNode = MakeTree(inputList, tree, node * 2 + 1, mid+1, end);
+
+	DATA subSum;
+	if (1 == rightNode.index - leftNode.index)
+	{
+		LONG leftSum = leftNode.sum + leftNode.data;
+		LONG rightSum = rightNode.sum + rightNode.data;
+
+		if (leftSum >= rightSum)
+		{
+			subSum = leftNode;
+			subSum.sum = leftSum;
+		}
+		else
+		{
+			subSum = rightNode;
+			subSum.sum = rightSum;
+		}
+	}
+	else
+	{
+		if (leftNode.sum >= rightNode.sum)
+			subSum = leftNode;
+		else
+			subSum = rightNode;
+	}
+	
+	return subSum;
 }
