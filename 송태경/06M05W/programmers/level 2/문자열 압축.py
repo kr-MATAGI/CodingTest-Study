@@ -17,9 +17,9 @@ def solution(s):
                 result += str(count) + cut_s
                 cut_s = s[i:i+cut]
                 count = 1
-
         if count == 1:
             count = ""
+            
         result += str(count) + cut_s
         length.append(len(result))
         result = ""
